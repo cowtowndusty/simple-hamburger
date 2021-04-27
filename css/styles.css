@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin|Roboto:400,700|Roboto+Condensed:400,700');
+
+/* Fonts */
+body {
+  font-family: 'Cabin', sans-serif;
+  color: #111D2A;
+  font-size: clamp(1.8rem, 2.5vw, 3rem);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.5rem, 7vw, 8rem);
+}
+
+/* Reset */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* Content section */
+
+section {
+  width: 80%;
+  text-align: center;
+  line-height: 1.8rem;
+  letter-spacing: 3px;
+  margin: clamp(2.5rem, 5vw, 6rem);
+}
+
+/* Top Header */
+
+.s1 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background-image: linear-gradient(#279EA7, #53569F);
+  transform: skewY(-6deg);
+  transform-origin: top left;
+}
+
+label {
+  display: none;
+}
+
+/* Overlay area/effect when hamburger is clicked */
+
+.overlay {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 100vh;
+  transition: 0.3s linear;
+}
+
+.overlay.active {
+  width: 100%;
+  height: 100vh;
+  background-color: #111d2a8a;
+}
+
+/* Hamburger icon */
+
+#h-menu {
+  z-index: 1000;
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+  width: 3.125rem;
+  height: 2.75rem;
+  background: none;
+  border: none;
+  appearance: none;
+  cursor: pointer;
+  overflow: hidden;
+}
+#h-menu:focus:not(:focus-visible) {
+  outline: none;
+}
+#h-menu::before,
+#h-menu::after {
+  content: '';
+}
+#h-menu::before,
+#h-menu::after,
+#h-menu span {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: #fff;
+  border-radius: 4px;
+}
+#h-menu::before {
+  top: 3px;
+  left: 8px;
+  transform-origin: 0 0;
+  transform: rotate(45deg) scaleX(0);
+  transition: .2s;
+}
+#h-menu::after {
+  top: 3px;
+  right: 9px;
+  transform-origin: 100% 0;
+  transform: rotate(-45deg) scaleX(0);
+  transition: .2s .2s;
+}
+#h-menu span:nth-of-type(-n+3) {
+  left: 0;
+  transition: .2s .4s;
+}
+#h-menu span:nth-of-type(1) {
+  top: 0;
+}
+#h-menu span:nth-of-type(2) {
+  top: 20px;
+}
+#h-menu span:nth-of-type(3) {
+  bottom: 0;
+}
+#h-menu.active::before {
+  transform: rotate(45deg) scaleX(1);
+  transition-delay: .8s;
+}
+#h-menu.active::after {
+  transform: rotate(-45deg) scaleX(1);
+  transition-delay: 1s;
+}
+#h-menu.active span:nth-of-type(-n+3) {
+  transform: translateX(20px);
+  transition: .4s cubic-bezier(.68, -2, .32, 1.6);
+  opacity: 0;
+}
+#h-menu.active span:nth-of-type(2) {
+  transition-delay: .1s;
+}
+#h-menu.active span:nth-of-type(3) {
+  transition-delay: .3s;
+}
+
+/* Navigation menu */
+
+.nav {
+  height: 100vh;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #111d2a;
+  color: #D4D4CE;
+  position: fixed;
+  right: 0;
+  transform: translateX(100%);
+  transition: transform 0.3s linear;
+  margin-left: 200px;
+}
+
+.nav.active {
+  transform: translateX(0);
+}
+
+ul {
+  list-style: none;
+  text-align: center;
+}
+
+li {
+  text-transform: uppercase;
+  font-size: 2rem;
+  letter-spacing: 3px;
+  line-height: 1.6;
+}
+
+a {
+  color: #fafafa;
+  transition: 0.5s;
+}
+
+i {
+  margin: 2rem;
+}
+
+a:hover {
+  color: #279EA7;
+  outline: none;
+}
+
+/* FontAwesome Icons */
+
+.social-media i {
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  transition: color .5s;
+}
+
+.fa-facebook-square {
+  color: #3b5999;
+}
+
+.fa-twitter-square {
+  color: #55acee;
+}
+
+.fa-instagram {
+  color: #e6683c;
+}
+
+.fa-google-plus-square {
+  color: #dd4b39;
+}
+
+.fa-linkedin-in {
+  color: #0e76a8;
+}
+
+.fa-github {
+  color: #4078c0;
+}
+
+.fa-facebook-square:hover, .fa-twitter-square:hover, .fa-instagram:hover, .fa-google-plus-square:hover, .fa-linkedin-in:hover, .fa-github:hover {
+color: #D4D4CE;
+}
+
+/* Footer */
+
+footer {
+  text-align: center;
+  font-size: clamp(1rem, 2.5vw, 1.6rem);
+  margin: 1rem
+}
+
+/* TODO Update Hamburger menu colour below for visibility when it shifts for mobile via media query */
+
+/* Changing the location of hamburger menu for mobile devices */
+
+/* @media screen and (max-width: 37.5rem) {
+  #h-menu {
+    top: 90%;
+    right: 12%;
+  }
+} */
